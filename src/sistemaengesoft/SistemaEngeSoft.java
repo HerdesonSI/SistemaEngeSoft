@@ -41,6 +41,7 @@ public class SistemaEngeSoft {
             String senha = teclado.nextLine();
             
             if(login.equals(funcionario1.getLogin()) || login.equals(funcionario2.getLogin())){
+                //Loop do menu.
                 do{
                     //Menu principal.
                     System.out.println(" === Menu === ");
@@ -50,7 +51,7 @@ public class SistemaEngeSoft {
                     int menuPrincipal = teclado.nextInt();
             
                     switch(menuPrincipal){
-                        case 0: //Opção de saido do sistema.
+                        case 0: //Opção de saida do sistema.
                             System.out.println(" === Sair === ");
                             System.out.println("Deseja realmente sair do sistema: ");
                             System.out.println("1 - Sim | 2 - Não");
@@ -76,6 +77,16 @@ public class SistemaEngeSoft {
                             System.out.println("7 - Assinantes para renova");
                             System.out.println("Digite a opção desejada: ");
                             int opcaoRelatorio = teclado.nextInt();
+                            
+                            switch(opcaoRelatorio){
+                                case 1:break;
+                                case 2:break;
+                                case 3:break;
+                                case 4:break;
+                                case 5:break;
+                                case 6:break;
+                                case 7:break;
+                            }
                         break;
                     }
                 } while(opcaoMenu == false);
