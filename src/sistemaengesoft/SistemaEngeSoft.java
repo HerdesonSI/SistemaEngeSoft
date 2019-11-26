@@ -23,10 +23,9 @@ public class SistemaEngeSoft {
         //Instanciando Scanner.
         Scanner teclado = new Scanner(System.in);
         
-        //Cadastro de funcionarios.
+        //Cadastro do funcionario administrador.
         //Ordem de cadastro: nome, email, login, senha, cargo.
         Funcionario funcionario1 = new Funcionario("Luci", "luci@gmail.com", "luci", "123", "editor-chefe");
-        Funcionario funcionario2 = new Funcionario("Milto", "milto@gmail.com", "adm", "123", "redator");
         
         //teste.
         Avaliador avaliador = new Avaliador();
@@ -43,12 +42,12 @@ public class SistemaEngeSoft {
             System.out.println("Digite sua senha: ");
             String senha = teclado.nextLine();
             
-            if(login.equals(funcionario1.getLogin()) || login.equals(funcionario2.getLogin())){
+            if(login.equals(funcionario1.getLogin()) && senha.equals(funcionario1.getSenha())){
                 //Loop do menu.
                 do{
                     //Menu principal.
                     System.out.println(" === Menu === ");
-                    System.out.println("1 - Pesquisa relatorios");
+                    System.out.println("1 - Pesquisa relatórios");
                     System.out.println("0 - Fechar o sistema");
                     System.out.println("Digite a opção desejada: ");
                     int menuPrincipal = teclado.nextInt();
@@ -71,7 +70,7 @@ public class SistemaEngeSoft {
                         
                         case 1: //Opções de relatórios.
                             System.out.println(" === Relatório === ");
-                            System.out.println("1 - Revistas lançadas");
+                            System.out.println("1 - Revistas lançadas por ano");
                             System.out.println("2 - Avaliadores");
                             System.out.println("3 - Artigos submetidos");
                             System.out.println("4 - Artigos selecionados e rejeitados");
@@ -82,7 +81,11 @@ public class SistemaEngeSoft {
                             int opcaoRelatorio = teclado.nextInt();
                             
                             switch(opcaoRelatorio){
-                                case 1:break;
+                                case 1:
+                                    //Selecionar ano para gera os relatórios
+                                    System.out.println("Digite o ano desejado para gerar o relatório: ");
+                                    int anoEscolhido = teclado.nextInt();
+                                break;
                                 
                                 case 2:
                                     avaliador.listarAvaliadores();
@@ -93,8 +96,11 @@ public class SistemaEngeSoft {
                                 case 5:break;
                                 case 6:break;
                                 case 7:break;
+                                //Adicionar default aqui
                             }
                         break;
+                        
+                        //Adicionar default aqui
                     }
                 } while(opcaoMenu == false);
             } else{

@@ -12,8 +12,7 @@ package sistemaengesoft;
 public class Edicao {
     private int volume;
     private int numero;
-    private int mes;
-    private int ano;
+    private Data data;
     private String tema;
     private Artigo[] artigosSelecionados;
 }
