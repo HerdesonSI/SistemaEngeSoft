@@ -13,8 +13,8 @@ public class Avaliador extends Usuario{
     private String tema[];
     private Instituicao instituicaoDoAvaliador;
     
-    public void listarAvaliadores(String nome, String tema[]){
-        this.nome = nome;
-        this.tema = tema;
+    public void listarAvaliadores(){
+        System.out.println("Nome do avaliador: " + this.nome);
+        System.out.println("Habilitado nos temas: " + this.tema);
     }
 }

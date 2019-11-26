@@ -28,6 +28,9 @@ public class SistemaEngeSoft {
         Funcionario funcionario1 = new Funcionario("Luci", "luci@gmail.com", "luci", "123", "editor-chefe");
         Funcionario funcionario2 = new Funcionario("Milto", "milto@gmail.com", "adm", "123", "redator");
         
+        //teste.
+        Avaliador avaliador = new Avaliador();
+        
         //Variaveis para efetuar o loop dos menus do sistema.
         boolean opcaoMenuInicial = false;
         boolean opcaoMenu = false;
@@ -56,7 +59,7 @@ public class SistemaEngeSoft {
                             System.out.println("Deseja realmente sair do sistema: ");
                             System.out.println("1 - Sim | 2 - Não");
                             System.out.println("Digite a opção desejada: ");
-                            int opcaoSaida = teclado.nextInt();
+                             int opcaoSaida = teclado.nextInt();
                     
                             if(opcaoSaida == 1){
                                 opcaoMenu = true;
@@ -80,7 +83,11 @@ public class SistemaEngeSoft {
                             
                             switch(opcaoRelatorio){
                                 case 1:break;
-                                case 2:break;
+                                
+                                case 2:
+                                    avaliador.listarAvaliadores();
+                                break;
+                                
                                 case 3:break;
                                 case 4:break;
                                 case 5:break;
