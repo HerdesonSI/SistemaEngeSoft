@@ -89,6 +89,7 @@ public class SistemaEngeSoft {
                                 break;
                                 
                                 case 2:
+                                    //Lista os avaliadores.
                                     avaliador.listarAvaliadores();
                                 break;
                                 
@@ -97,13 +98,21 @@ public class SistemaEngeSoft {
                                 case 5:break;
                                 case 6:break;
                                 case 7:break;
-                                //Adicionar default aqui
+                                default:
+                                    System.out.print("\nOpção inválida \n\n"); 
                             }
                         break;
                         
                         case 2:
                             //Opções de possiveis cadastro.
-                            System.out.print("\n === Cadastros === \n");
+                            System.out.print("\n === Cadastrar === \n");
+                            System.out.println("1 - Revista");
+                            System.out.println("2 - Artigo");
+                            System.out.println("3 - Avaliador");
+                            System.out.println("4 - Pessoa física");
+                            System.out.println("5 - Pessoa jurídica");
+                            System.out.println("Digite a opção desejada: ");
+                            int opcaoCadastro = teclado.nextInt();
                         break;
                         
                         default:

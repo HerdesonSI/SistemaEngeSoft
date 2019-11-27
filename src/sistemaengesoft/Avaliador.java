@@ -15,6 +15,8 @@ public class Avaliador extends Usuario{
     
     public void listarAvaliadores(){
         System.out.println("Nome do avaliador: " + this.nome);
+        System.out.println("Email do avaliador: " + this.email);
+        System.out.println("Insituição: " + this.instituicaoDoAvaliador);
         System.out.println("Habilitado nos temas: " + this.tema);
     }
 }
