@@ -46,15 +46,16 @@ public class SistemaEngeSoft {
                 //Loop do menu.
                 do{
                     //Menu principal.
-                    System.out.println(" === Menu === ");
+                    System.out.print("\n === Menu === \n");
                     System.out.println("1 - Pesquisa relatórios");
+                    System.out.println("2 - Fazer cadastros");
                     System.out.println("0 - Fechar o sistema");
                     System.out.println("Digite a opção desejada: ");
                     int menuPrincipal = teclado.nextInt();
             
                     switch(menuPrincipal){
                         case 0: //Opção de saida do sistema.
-                            System.out.println(" === Sair === ");
+                            System.out.print("\n === Sair === \n");
                             System.out.println("Deseja realmente sair do sistema: ");
                             System.out.println("1 - Sim | 2 - Não");
                             System.out.println("Digite a opção desejada: ");
@@ -69,7 +70,7 @@ public class SistemaEngeSoft {
                         break;
                         
                         case 1: //Opções de relatórios.
-                            System.out.println(" === Relatório === ");
+                            System.out.print("\n === Relatório === \n");
                             System.out.println("1 - Revistas lançadas por ano");
                             System.out.println("2 - Avaliadores");
                             System.out.println("3 - Artigos submetidos");
@@ -82,7 +83,7 @@ public class SistemaEngeSoft {
                             
                             switch(opcaoRelatorio){
                                 case 1:
-                                    //Selecionar ano para gera os relatórios
+                                    //Selecionar ano para gera os relatórios.
                                     System.out.println("Digite o ano desejado para gerar o relatório: ");
                                     int anoEscolhido = teclado.nextInt();
                                 break;
@@ -100,11 +101,18 @@ public class SistemaEngeSoft {
                             }
                         break;
                         
-                        //Adicionar default aqui
+                        case 2:
+                            //Opções de possiveis cadastro.
+                            System.out.print("\n === Cadastros === \n");
+                        break;
+                        
+                        default:
+                            System.out.print("\nOpção inválida \n\n");
                     }
                 } while(opcaoMenu == false);
             } else{
-                System.out.println("Senha e/ou login incorreto");
+                //Mensagem básica de erro no login e senha. 
+                System.out.print("\nSenha e/ou login incorreto\n\n");
             }
         } while(opcaoMenuInicial == false);
     }    
