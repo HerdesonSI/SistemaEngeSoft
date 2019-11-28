@@ -118,6 +118,14 @@ public class SistemaEngeSoft {
                             System.out.println("5 - Pessoa jurídica");
                             System.out.println("Digite a opção desejada: ");
                             int opcaoCadastro = teclado.nextInt();
+                            
+                            switch(opcaoCadastro){
+                                default:
+                                    System.out.print("\nOpção inválida \n");
+                            }
+                        break;
+                        
+                        case 3:
                         break;
                         
                         default:
