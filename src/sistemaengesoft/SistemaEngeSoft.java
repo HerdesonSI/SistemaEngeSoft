@@ -49,6 +49,7 @@ public class SistemaEngeSoft {
                     System.out.print("\n === Menu === \n");
                     System.out.println("1 - Pesquisa relatórios");
                     System.out.println("2 - Fazer cadastros");
+                    System.out.println("3 - Atribuir nota a artigo");
                     System.out.println("0 - Fechar o sistema");
                     System.out.println("Digite a opção desejada: ");
                     int menuPrincipal = teclado.nextInt();
@@ -62,10 +63,13 @@ public class SistemaEngeSoft {
                              int opcaoSaida = teclado.nextInt();
                     
                             if(opcaoSaida == 1){
+                                //Mensagem de saido do sistema.
+                                System.out.print("\nO sistema está fechando\n\n");
+                                
                                 opcaoMenu = true;
                                 opcaoMenuInicial = true;
                             } else{
-                                System.out.println("Voltando para o menu principal");
+                                System.out.print("\nVoltando para o menu principal\n");
                             }
                         break;
                         
@@ -84,6 +88,7 @@ public class SistemaEngeSoft {
                             switch(opcaoRelatorio){
                                 case 1:
                                     //Selecionar ano para gera os relatórios.
+                                    System.out.print("\n === Revistas lançadas por ano === \n");
                                     System.out.println("Digite o ano desejado para gerar o relatório: ");
                                     int anoEscolhido = teclado.nextInt();
                                 break;
@@ -99,7 +104,7 @@ public class SistemaEngeSoft {
                                 case 6:break;
                                 case 7:break;
                                 default:
-                                    System.out.print("\nOpção inválida \n\n"); 
+                                    System.out.print("\nOpção inválida \n"); 
                             }
                         break;
                         
@@ -116,7 +121,7 @@ public class SistemaEngeSoft {
                         break;
                         
                         default:
-                            System.out.print("\nOpção inválida \n\n");
+                            System.out.print("\nOpção inválida \n");
                     }
                 } while(opcaoMenu == false);
             } else{
