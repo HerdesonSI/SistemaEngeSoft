@@ -11,4 +11,13 @@ package sistemaengesoft;
  */
 public class Revista {
     private Edicao[] edicaoRevista;
+
+    //Gets e Sets da classe
+    public Edicao[] getEdicaoRevista() {
+        return edicaoRevista;
+    }
+
+    public void setEdicaoRevista(Edicao[] edicaoRevista) {
+        this.edicaoRevista = edicaoRevista;
+    }
 }

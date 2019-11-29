@@ -6,6 +6,7 @@
 package sistemaengesoft;
 
 //Impotações.
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -27,12 +28,13 @@ public class SistemaEngeSoft {
         //Ordem de cadastro: nome, email, login, senha, cargo.
         Funcionario funcionario1 = new Funcionario("Luci", "luci@gmail.com", "luci", "123", "editor-chefe");
         
-        //teste.
-        Avaliador avaliador = new Avaliador();
+        //Lista de ArrayList.
+        ArrayList<Revista> revista = new ArrayList();
+        Avaliador avaliador = new Avaliador(); //ArrayList para os avaliadores.
         
         //Variaveis para efetuar o loop dos menus do sistema.
-        boolean opcaoMenuInicial = false;
-        boolean opcaoMenu = false;
+        boolean opcaoMenuInicial = false; //Login e senha
+        boolean opcaoMenu = false; //Menu principal.
         
         do{
             //Bloco para realização de login no sistema.
@@ -95,7 +97,7 @@ public class SistemaEngeSoft {
                                 
                                 case 2:
                                     //Lista os avaliadores.
-                                    avaliador.listarAvaliadores();
+                                                                        
                                 break;
                                 
                                 case 3:break;
@@ -120,12 +122,37 @@ public class SistemaEngeSoft {
                             int opcaoCadastro = teclado.nextInt();
                             
                             switch(opcaoCadastro){
+                                case 1:
+                                    //Cadastro de revista.
+                                    System.out.print("\n === Cadastro da revista === \n");
+                                    System.out.println("= Edicao =");
+                                    System.out.println("Volume da edição da revista: ");                                    
+                                    System.out.println("Número da edição da revista: ");
+                                    System.out.println("Mês da edição da revista:");
+                                    System.out.println("Ano da edição da revista:");
+                                    System.out.println("Tema da edição da revista:");
+                                    System.out.println("= Artigos =");
+                                    System.out.println("Artigos selecionados;");
+                                break;
+                                
+                                case 2:break;
+                                
+                                case 3:
+                                    //Cadastro de avaliador.
+                                    System.out.print("\n === Cadastro de avaliador === \n");
+                                    System.out.println("Nome do avaliador:");
+                                    avaliador.setNome(teclado.nextLine());
+                                break;
+                                
+                                case 4:break;
+                                case 5:break;
                                 default:
                                     System.out.print("\nOpção inválida \n");
                             }
                         break;
                         
                         case 3:
+                            //Insirir notas nos artigos ja cadastrados
                         break;
                         
                         default:

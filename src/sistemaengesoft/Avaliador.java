@@ -19,4 +19,21 @@ public class Avaliador extends Usuario{
         System.out.println("Insituição: " + this.instituicaoDoAvaliador);
         System.out.println("Habilitado nos temas: " + this.tema);
     }
+
+    //Gets e Sets da classe
+    public String[] getTema() {
+        return tema;
+    }
+
+    public void setTema(String[] tema) {
+        this.tema = tema;
+    }
+
+    public Instituicao getInstituicaoDoAvaliador() {
+        return instituicaoDoAvaliador;
+    }
+
+    public void setInstituicaoDoAvaliador(Instituicao instituicaoDoAvaliador) {
+        this.instituicaoDoAvaliador = instituicaoDoAvaliador;
+    }
 }
