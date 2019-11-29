@@ -14,19 +14,6 @@ public class Data {
     private int mes;
     private int ano;
     
-    //Data formado de mes e ano.
-    public Data(int mes, int ano){
-        this.mes = mes;
-        this.ano = ano;
-    }
-    
-    //Data completa com dia, mes, ano
-    public Data(int dia, int mes, int ano){
-        this.dia = dia;
-        this.mes = mes;
-        this.ano = ano;
-    }
-    
     //Gets e Sets da classe
     public int getDia() {
         return dia;

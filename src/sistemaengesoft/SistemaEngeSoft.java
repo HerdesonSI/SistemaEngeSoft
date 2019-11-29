@@ -6,7 +6,6 @@
 package sistemaengesoft;
 
 //Impotações.
-import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -28,13 +27,16 @@ public class SistemaEngeSoft {
         //Ordem de cadastro: nome, email, login, senha, cargo.
         Funcionario funcionario1 = new Funcionario("Luci", "luci@gmail.com", "luci", "123", "editor-chefe");
         
-        //Lista de ArrayList.
-        ArrayList<Revista> revista = new ArrayList();
-        Avaliador avaliador = new Avaliador(); //ArrayList para os avaliadores.
+        //Instanciando todas as classes.
+        Revista revista = new Revista();
+        Edicao edicao = new Edicao();
+        Artigo artigo = new Artigo();
+        Autor autor = new Autor();
+        Data data = new Data();
         
-        //Variaveis para efetuar o loop dos menus do sistema.
-        boolean opcaoMenuInicial = false; //Login e senha
-        boolean opcaoMenu = false; //Menu principal.
+        //Variaveis para efetuar o loop do sistema.
+        boolean opcaoMenuInicial = false; //Loop de login e senha
+        boolean opcaoMenu = false; //Loop do menu principal.
         
         do{
             //Bloco para realização de login no sistema.
@@ -54,7 +56,7 @@ public class SistemaEngeSoft {
                     System.out.println("3 - Atribuir nota a artigo");
                     System.out.println("0 - Fechar o sistema");
                     System.out.println("Digite a opção desejada: ");
-                    int menuPrincipal = teclado.nextInt();
+                    int menuPrincipal = teclado.nextInt(); //Receber valor do usuario.
             
                     switch(menuPrincipal){
                         case 0: //Opção de saida do sistema.
@@ -62,12 +64,13 @@ public class SistemaEngeSoft {
                             System.out.println("Deseja realmente sair do sistema: ");
                             System.out.println("1 - Sim | 2 - Não");
                             System.out.println("Digite a opção desejada: ");
-                             int opcaoSaida = teclado.nextInt();
+                             int opcaoSaida = teclado.nextInt(); //Receber valor do usuario.
                     
                             if(opcaoSaida == 1){
                                 //Mensagem de saido do sistema.
                                 System.out.print("\nO sistema está fechando\n\n");
                                 
+                                //Fechando os dois loops do sistema.
                                 opcaoMenu = true;
                                 opcaoMenuInicial = true;
                             } else{
@@ -85,7 +88,7 @@ public class SistemaEngeSoft {
                             System.out.println("6 - Pessoas jurídicas");
                             System.out.println("7 - Assinantes para renova");
                             System.out.println("Digite a opção desejada: ");
-                            int opcaoRelatorio = teclado.nextInt();
+                            int opcaoRelatorio = teclado.nextInt(); //Receber valor do usuario.
                             
                             switch(opcaoRelatorio){
                                 case 1:
@@ -100,11 +103,26 @@ public class SistemaEngeSoft {
                                                                         
                                 break;
                                 
-                                case 3:break;
-                                case 4:break;
-                                case 5:break;
-                                case 6:break;
-                                case 7:break;
+                                case 3:
+                                    //Lista artigos submetidos.
+                                break; 
+                                
+                                case 4:
+                                    //Lista artigos selecionados e rejeitados.
+                                break; 
+                                
+                                case 5:
+                                    //Lista pessoas físicas.
+                                break; 
+                                
+                                case 6:
+                                    //Lista pessoas jurídicas.
+                                break; 
+                                
+                                case 7:
+                                    //Lista assinantes para renovação.
+                                break; 
+                                
                                 default:
                                     System.out.print("\nOpção inválida \n"); 
                             }
@@ -119,33 +137,53 @@ public class SistemaEngeSoft {
                             System.out.println("4 - Pessoa física");
                             System.out.println("5 - Pessoa jurídica");
                             System.out.println("Digite a opção desejada: ");
-                            int opcaoCadastro = teclado.nextInt();
+                            int opcaoCadastro = teclado.nextInt(); //Receber valor do usuario.
                             
                             switch(opcaoCadastro){
                                 case 1:
                                     //Cadastro de revista.
                                     System.out.print("\n === Cadastro da revista === \n");
                                     System.out.println("= Edicao =");
-                                    System.out.println("Volume da edição da revista: ");                                    
+                                    System.out.println("Volume da edição da revista: ");
+                                    int volumeRevista = teclado.nextInt();
                                     System.out.println("Número da edição da revista: ");
+                                    int numeroRevista = teclado.nextInt();
                                     System.out.println("Mês da edição da revista:");
+                                    int mesRevista = teclado.nextInt();
                                     System.out.println("Ano da edição da revista:");
+                                    int anoRevista = teclado.nextInt();
                                     System.out.println("Tema da edição da revista:");
+                                    String temaRevista = teclado.nextLine();
                                     System.out.println("= Artigos =");
                                     System.out.println("Artigos selecionados;");
+                                    
+                                    //Enviando valores pelo metodo set. 
+                                    edicao.setVolume(volumeRevista);
+                                    edicao.setNumero(numeroRevista);
+                                    edicao.setTema(temaRevista);
+                                    
+                                    
+                                    
                                 break;
                                 
-                                case 2:break;
+                                case 2:
+                                    //Cadastro de artigo.                                    
+                                break;
                                 
                                 case 3:
                                     //Cadastro de avaliador.
                                     System.out.print("\n === Cadastro de avaliador === \n");
                                     System.out.println("Nome do avaliador:");
-                                    avaliador.setNome(teclado.nextLine());
                                 break;
                                 
-                                case 4:break;
-                                case 5:break;
+                                case 4:
+                                    //Cadastro pessoa física.
+                                break;
+                                
+                                case 5:
+                                    //Cadastro pessoa jurídica.
+                                break;
+                                
                                 default:
                                     System.out.print("\nOpção inválida \n");
                             }
