@@ -27,13 +27,9 @@ public class SistemaEngeSoft {
         //Ordem de cadastro: nome, email, login, senha, cargo.
         Funcionario funcionario1 = new Funcionario("Luci", "luci@gmail.com", "luci", "123", "editor-chefe");
         
-        //Instanciando todas as classes.
+        //Instanciando as classes.
         Menus menu = new Menus(); //Classe com os menus do sistema.
-        
-        Revista revista = new Revista();
-        Artigo artigo = new Artigo();
-        Autor autor = new Autor();
-        Data data = new Data();
+        Cadastros cadastros = new Cadastros(); //Classe com os cadastro.
         
         //ArrayList
         List<Edicao> edicao = new ArrayList(); //ArrayList da class edicao.
@@ -54,7 +50,7 @@ public class SistemaEngeSoft {
                 //Loop do menu.
                 do{
                     /*
-                    * Passando o método listarMenuPrincipal como parametro.
+                    * Passando o método menuPrincipal como parametro.
                     * Esse metodo tem todas as opções do Menu principal.
                     */            
                     switch(menu.menuPrincipal()){
@@ -119,20 +115,14 @@ public class SistemaEngeSoft {
                             switch(menu.listaOpcoesCadastro()){
                                 case 1:
                                     //Cadastro de revista.
-                                    Edicao receberValores = new Edicao(); //Instancia da class edicao
                                     boolean novoCadastro = false; //Loop para cadastros seguidos.
                                             
                                     do{                                        
-                                        //Adicionando no array
-                                        edicao.add(receberValores);
+                                        //Adicionando no arraylist com o metodo de cadastro de edicao.
+                                        edicao.add(cadastros.cadastroEdicao());
                                         
-                                        //Pergunta para quebra de laço.
-                                        System.out.println("Deseja cadastrar outra revista? ");
-                                        System.out.println("1 - sim | 2 - não");
-                                        System.out.println("Digite a opção desejada: ");
-                                        int opcaoQuebraDeLoop = teclado.nextInt();
-                                        
-                                        if(opcaoQuebraDeLoop == 2){
+                                        //Utilizando metodo loopDeCadastroRevista para retorna o valor para os ifs.
+                                        if(menu.loopDeCadastroRevista() == 2){
                                             novoCadastro = true;
                                         } else{
                                             System.out.println("Opção inválida, você será redirecionado para o menu");
