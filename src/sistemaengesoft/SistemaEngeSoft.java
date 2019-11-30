@@ -122,29 +122,7 @@ public class SistemaEngeSoft {
                                     Edicao receberValores = new Edicao(); //Instancia da class edicao
                                     boolean novoCadastro = false; //Loop para cadastros seguidos.
                                             
-                                    do{
-                                        System.out.print("\n === Cadastro da revista === \n");                                                                   
-                                        System.out.println("= Edicao =");
-                                        System.out.println("Volume da edição da revista: ");
-                                        int volumeRevista = teclado.nextInt();
-                                        System.out.println("Número da edição da revista: ");
-                                        int numeroRevista = teclado.nextInt();
-                                        System.out.println("Mês da edição da revista:");
-                                        int mesRevista = teclado.nextInt();
-                                        System.out.println("Ano da edição da revista:");
-                                        int anoRevista = teclado.nextInt();
-                                        System.out.println("Tema da edição da revista:");
-                                        String temaRevista = teclado.nextLine();
-                                        System.out.println("= Artigos =");
-                                        System.out.println("Artigos selecionados;");
-                                    
-                                        //Usando metodo get para enviar os dados
-                                        receberValores.setVolume(volumeRevista);
-                                        receberValores.setNumero(numeroRevista);
-                                        //receberValores.setData(mesRevista);
-                                        //receberValores.setData(anoRevista);
-                                        receberValores.setTema(temaRevista);
-                                        
+                                    do{                                        
                                         //Adicionando no array
                                         edicao.add(receberValores);
                                         

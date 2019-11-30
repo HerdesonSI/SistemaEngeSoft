@@ -81,4 +81,31 @@ public class Menus {
     public void mensgemOpcaoInvalida(){
         System.out.print("\nOpção inválida \n");
     }
+    
+    //Cadastro de edição
+    public Edicao cadastroEdicao(){
+        //Instancia da class Edicao e da class Data.
+        Edicao edicao = new Edicao();
+        Data data = new Data();
+        
+        System.out.print("\n === Cadastro da revista === \n");                                                                   
+        System.out.println("= Edicao =");
+        System.out.println("Volume da edição da revista: ");
+        edicao.setVolume(teclado.nextInt());
+        System.out.println("Número da edição da revista: ");
+        edicao.setVolume(teclado.nextInt());
+        System.out.println("Mês da edição da revista:");
+        data.setMes(teclado.nextInt());
+        System.out.println("Ano da edição da revista:");
+        data.setAno(teclado.nextInt());
+        System.out.println("Tema da edição da revista:");
+        edicao.setTema(teclado.nextLine());
+        
+        System.out.println("= Artigos =");
+        System.out.println("Artigos selecionados;");
+        
+        edicao.setData(data);
+        
+        return edicao;
+    }
 }
