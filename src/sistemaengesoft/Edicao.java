@@ -16,6 +16,27 @@ public class Edicao {
     private String tema;
     private Artigo[] artigosSelecionados;
 
+    public Edicao(){
+        //Construtor padrão vazio.
+    }
+    
+    //Construtor com todos os parametros.
+    public Edicao(int volume, int numero, Data data, String tema, Artigo[] artigoSelecionados){
+        this.volume = volume;
+        this.numero = numero;
+        this.data = data;
+        this.tema = tema;
+        this.artigosSelecionados = artigoSelecionados;
+    }
+    
+    public void listaEdicao(){
+        System.out.println("Volume: " + getVolume());
+        System.out.println("Numero: " + getNumero());
+        System.out.println("Data: " + this.data.getMes() + "/" + this.data.getAno());
+        System.out.println("Tema: " + getTema());
+        System.out.println("Artigos selecionados: " + getArtigosSelecionados());
+    }
+    
     //Gets e Sets da classe
     public int getVolume() {
         return volume;

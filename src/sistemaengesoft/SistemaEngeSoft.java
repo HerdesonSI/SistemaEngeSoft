@@ -6,6 +6,8 @@
 package sistemaengesoft;
 
 //Impotações.
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -17,9 +19,7 @@ public class SistemaEngeSoft {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
-        
+    public static void main(String[] args) {        
         //Instanciando Scanner.
         Scanner teclado = new Scanner(System.in);
         
@@ -28,11 +28,15 @@ public class SistemaEngeSoft {
         Funcionario funcionario1 = new Funcionario("Luci", "luci@gmail.com", "luci", "123", "editor-chefe");
         
         //Instanciando todas as classes.
+        Menus menu = new Menus(); //Classe com os menus do sistema.
+        
         Revista revista = new Revista();
-        Edicao edicao = new Edicao();
         Artigo artigo = new Artigo();
         Autor autor = new Autor();
         Data data = new Data();
+        
+        //ArrayList
+        List<Edicao> edicao = new ArrayList(); //ArrayList da class edicao.
         
         //Variaveis para efetuar o loop do sistema.
         boolean opcaoMenuInicial = false; //Loop de login e senha
@@ -49,24 +53,13 @@ public class SistemaEngeSoft {
             if(login.equals(funcionario1.getLogin()) && senha.equals(funcionario1.getSenha())){
                 //Loop do menu.
                 do{
-                    //Menu principal.
-                    System.out.print("\n === Menu === \n");
-                    System.out.println("1 - Pesquisa relatórios");
-                    System.out.println("2 - Fazer cadastros");
-                    System.out.println("3 - Atribuir nota a artigo");
-                    System.out.println("0 - Fechar o sistema");
-                    System.out.println("Digite a opção desejada: ");
-                    int menuPrincipal = teclado.nextInt(); //Receber valor do usuario.
-            
-                    switch(menuPrincipal){
-                        case 0: //Opção de saida do sistema.
-                            System.out.print("\n === Sair === \n");
-                            System.out.println("Deseja realmente sair do sistema: ");
-                            System.out.println("1 - Sim | 2 - Não");
-                            System.out.println("Digite a opção desejada: ");
-                             int opcaoSaida = teclado.nextInt(); //Receber valor do usuario.
-                    
-                            if(opcaoSaida == 1){
+                    /*
+                    * Passando o método listarMenuPrincipal como parametro.
+                    * Esse metodo tem todas as opções do Menu principal.
+                    */            
+                    switch(menu.menuPrincipal()){
+                        case 0: //Opção de saida do sistema.                    
+                            if(menu.menuSaida() == 1){
                                 //Mensagem de saido do sistema.
                                 System.out.print("\nO sistema está fechando\n\n");
                                 
@@ -78,24 +71,17 @@ public class SistemaEngeSoft {
                             }
                         break;
                         
-                        case 1: //Opções de relatórios.
-                            System.out.print("\n === Relatório === \n");
-                            System.out.println("1 - Revistas lançadas por ano");
-                            System.out.println("2 - Avaliadores");
-                            System.out.println("3 - Artigos submetidos");
-                            System.out.println("4 - Artigos selecionados e rejeitados");
-                            System.out.println("5 - Pessoas físicas");
-                            System.out.println("6 - Pessoas jurídicas");
-                            System.out.println("7 - Assinantes para renova");
-                            System.out.println("Digite a opção desejada: ");
-                            int opcaoRelatorio = teclado.nextInt(); //Receber valor do usuario.
-                            
-                            switch(opcaoRelatorio){
+                        case 1: //Opções de relatórios.                            
+                            switch(menu.listaOpcoesRelatorio()){
                                 case 1:
                                     //Selecionar ano para gera os relatórios.
                                     System.out.print("\n === Revistas lançadas por ano === \n");
                                     System.out.println("Digite o ano desejado para gerar o relatório: ");
                                     int anoEscolhido = teclado.nextInt();
+                                    
+                                    for(Edicao e: edicao){
+                                        e.listaEdicao();
+                                    }
                                 break;
                                 
                                 case 2:
@@ -124,46 +110,57 @@ public class SistemaEngeSoft {
                                 break; 
                                 
                                 default:
-                                    System.out.print("\nOpção inválida \n"); 
+                                    menu.mensgemOpcaoInvalida();
                             }
                         break;
                         
                         case 2:
-                            //Opções de possiveis cadastro.
-                            System.out.print("\n === Cadastrar === \n");
-                            System.out.println("1 - Revista");
-                            System.out.println("2 - Artigo");
-                            System.out.println("3 - Avaliador");
-                            System.out.println("4 - Pessoa física");
-                            System.out.println("5 - Pessoa jurídica");
-                            System.out.println("Digite a opção desejada: ");
-                            int opcaoCadastro = teclado.nextInt(); //Receber valor do usuario.
-                            
-                            switch(opcaoCadastro){
+                            //Opções de possiveis cadastro.                           
+                            switch(menu.listaOpcoesCadastro()){
                                 case 1:
                                     //Cadastro de revista.
-                                    System.out.print("\n === Cadastro da revista === \n");
-                                    System.out.println("= Edicao =");
-                                    System.out.println("Volume da edição da revista: ");
-                                    int volumeRevista = teclado.nextInt();
-                                    System.out.println("Número da edição da revista: ");
-                                    int numeroRevista = teclado.nextInt();
-                                    System.out.println("Mês da edição da revista:");
-                                    int mesRevista = teclado.nextInt();
-                                    System.out.println("Ano da edição da revista:");
-                                    int anoRevista = teclado.nextInt();
-                                    System.out.println("Tema da edição da revista:");
-                                    String temaRevista = teclado.nextLine();
-                                    System.out.println("= Artigos =");
-                                    System.out.println("Artigos selecionados;");
+                                    Edicao receberValores = new Edicao(); //Instancia da class edicao
+                                    boolean novoCadastro = false; //Loop para cadastros seguidos.
+                                            
+                                    do{
+                                        System.out.print("\n === Cadastro da revista === \n");                                                                   
+                                        System.out.println("= Edicao =");
+                                        System.out.println("Volume da edição da revista: ");
+                                        int volumeRevista = teclado.nextInt();
+                                        System.out.println("Número da edição da revista: ");
+                                        int numeroRevista = teclado.nextInt();
+                                        System.out.println("Mês da edição da revista:");
+                                        int mesRevista = teclado.nextInt();
+                                        System.out.println("Ano da edição da revista:");
+                                        int anoRevista = teclado.nextInt();
+                                        System.out.println("Tema da edição da revista:");
+                                        String temaRevista = teclado.nextLine();
+                                        System.out.println("= Artigos =");
+                                        System.out.println("Artigos selecionados;");
                                     
-                                    //Enviando valores pelo metodo set. 
-                                    edicao.setVolume(volumeRevista);
-                                    edicao.setNumero(numeroRevista);
-                                    edicao.setTema(temaRevista);
-                                    
-                                    
-                                    
+                                        //Usando metodo get para enviar os dados
+                                        receberValores.setVolume(volumeRevista);
+                                        receberValores.setNumero(numeroRevista);
+                                        //receberValores.setData(mesRevista);
+                                        //receberValores.setData(anoRevista);
+                                        receberValores.setTema(temaRevista);
+                                        
+                                        //Adicionando no array
+                                        edicao.add(receberValores);
+                                        
+                                        //Pergunta para quebra de laço.
+                                        System.out.println("Deseja cadastrar outra revista? ");
+                                        System.out.println("1 - sim | 2 - não");
+                                        System.out.println("Digite a opção desejada: ");
+                                        int opcaoQuebraDeLoop = teclado.nextInt();
+                                        
+                                        if(opcaoQuebraDeLoop == 2){
+                                            novoCadastro = true;
+                                        } else{
+                                            System.out.println("Opção inválida, você será redirecionado para o menu");
+                                            novoCadastro = true;
+                                        }
+                                    } while(novoCadastro == false); 
                                 break;
                                 
                                 case 2:
@@ -185,7 +182,7 @@ public class SistemaEngeSoft {
                                 break;
                                 
                                 default:
-                                    System.out.print("\nOpção inválida \n");
+                                    menu.mensgemOpcaoInvalida();
                             }
                         break;
                         
@@ -194,12 +191,12 @@ public class SistemaEngeSoft {
                         break;
                         
                         default:
-                            System.out.print("\nOpção inválida \n");
+                            menu.mensgemOpcaoInvalida();
                     }
                 } while(opcaoMenu == false);
             } else{
                 //Mensagem básica de erro no login e senha. 
-                System.out.print("\nSenha e/ou login incorreto\n\n");
+                menu.erroDeLogin();
             }
         } while(opcaoMenuInicial == false);
     }    
