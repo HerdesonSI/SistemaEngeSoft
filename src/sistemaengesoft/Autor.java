@@ -9,7 +9,7 @@ package sistemaengesoft;
  *
  * @author Herdeson Mourão
  */
-public class Autor {
+public class Autor extends Usuario{
     private Instituicao nomeDaInstituicao;
     private Instituicao enderecoDaInstituicao;
     

@@ -90,4 +90,13 @@ public class Menus {
         
         return opcaoQuebraDeLoop;
     }
+    
+    public int loopDeCadastroArtigo(){
+        System.out.println("Deseja cadastrar outro artigo? ");
+        System.out.println("1 - sim | 2 - não");
+        System.out.println("Digite a opção desejada: ");
+        int opcaoQuebraDeLoop = teclado.nextInt();
+        
+        return opcaoQuebraDeLoop;
+    }
 }

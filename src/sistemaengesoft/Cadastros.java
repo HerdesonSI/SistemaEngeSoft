@@ -48,6 +48,7 @@ public class Cadastros {
         return edicao;
     }
     
+    // no nome do autor
     public Artigo cadastroArtigo(){
         Usuario usuario = new Usuario();
         Autor autor = new Autor();
@@ -59,7 +60,7 @@ public class Cadastros {
         System.out.print("\n === Cadastro da revista === \n");
         for(int i = 0; i < num; i++){
             System.out.println("Nome do autor: ");
-            usuario.setNome(teclado.next());
+            autor.setNome(teclado.next());
         }
         
         System.out.println("Titulo do artigo: ");
@@ -69,12 +70,33 @@ public class Cadastros {
         int decisaoArtigo = teclado.nextInt();
         
         if(decisaoArtigo == 1){
+            artigo.setArquivoDoArtigo(true);
+        } else{
+            artigo.setArquivoDoArtigo(false);
+        }
+        
+        System.out.println("Identificação do artigo: ");
+        artigo.setIdentificacaoArtigo(teclado.next());
+        System.out.println("Autor responsavel: ");
+        autor.setNome(teclado.next());
+        
+        System.out.println("Status do artigo: 1 - avaliado | 2 - ainda não avaliado: ");
+        int decisaoAvaliacao = teclado.nextInt();
+        
+        if(decisaoAvaliacao == 1){
             artigo.setStatus(true);
         } else{
             artigo.setStatus(false);
         }
         
-        System.out.println("Identificação do artigo: ");
-        artigo.setIdentificacaoArtigo(teclado.next());
+        System.out.println("Tema do artigo: ");
+        artigo.setTema(teclado.next());
+        
+        return artigo;
+    }
+    
+    public Avaliador cadastroAvaliador(){
+        Avaliador avaliador = new Avaliador();
+        return avaliador;
     }
 }

@@ -74,4 +74,8 @@ public class Artigo {
     public void setTema(String tema) {
         this.tema = tema;
     }
+    
+    public Artigo cadastroArtigo(){
+        return artigo;
+    }
 }

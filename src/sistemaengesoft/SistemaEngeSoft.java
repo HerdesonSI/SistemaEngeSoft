@@ -33,6 +33,7 @@ public class SistemaEngeSoft {
         
         //ArrayList
         List<Edicao> edicao = new ArrayList(); //ArrayList da class edicao.
+        List<Artigo> artigo = new ArrayList();
         
         //Variaveis para efetuar o loop do sistema.
         boolean opcaoMenuInicial = false; //Loop de login e senha
@@ -115,7 +116,7 @@ public class SistemaEngeSoft {
                             switch(menu.listaOpcoesCadastro()){
                                 case 1:
                                     //Cadastro de revista.
-                                    boolean novoCadastro = false; //Loop para cadastros seguidos.
+                                    boolean cadastroRevista = false; //Loop para cadastros seguidos.
                                             
                                     do{                                        
                                         //Adicionando no arraylist com o metodo de cadastro de edicao.
@@ -123,16 +124,27 @@ public class SistemaEngeSoft {
                                         
                                         //Utilizando metodo loopDeCadastroRevista para retorna o valor para os ifs.
                                         if(menu.loopDeCadastroRevista() == 2){
-                                            novoCadastro = true;
+                                            cadastroRevista = true;
                                         } else{
                                             System.out.println("Opção inválida, você será redirecionado para o menu");
-                                            novoCadastro = true;
+                                            cadastroRevista = true;
                                         }
-                                    } while(novoCadastro == false); 
+                                    } while(cadastroRevista == false); 
                                 break;
                                 
                                 case 2:
-                                    //Cadastro de artigo.                                    
+                                    //Cadastro de artigo.
+                                    boolean cadastroArtigo = false;
+                                    do{
+                                        artigo.add(cadastros.cadastroArtigo());
+                                        
+                                        if(menu.loopDeCadastroArtigo() == 2){
+                                            cadastroArtigo = true;
+                                        } else{
+                                            System.out.println("Opção inválida, você será redirecionado para o menu");
+                                            cadastroArtigo = true;
+                                        }
+                                    } while(cadastroArtigo == false);
                                 break;
                                 
                                 case 3:
